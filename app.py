@@ -4,7 +4,9 @@ import re
 import logging
 import streamlit as st
 import io
-
+from fuzzywuzzy import fuzz
+import os
+import glob
 st.title("Assortment Enhancemnt & QC Tool")
 
 # File uploaders
@@ -22,12 +24,6 @@ if scanning_file and catalog_file and pim_file:
         df_catalog = pd.read_csv(catalog_file)
         df_pim = pd.read_csv(pim_file)
         df_images = pd.read_csv(images_file)
-
-        from fuzzywuzzy import fuzz
-        import os
-        import glob
-
-
 
         # Format columns
         df_scanning['SKUs'] = df_scanning['SKUs'].astype(str).str.strip()
