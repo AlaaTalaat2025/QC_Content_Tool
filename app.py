@@ -115,7 +115,9 @@ if scanning_file and catalog_file and pim_file:
         matched_barcode = merge_barcode[~merge_barcode['sku'].isna()]
         unmatched_barcode = merge_barcode[merge_barcode['sku'].isna()]
 
+        unmatched_barcode = unmatched_barcode.copy()
         unmatched_barcode['SKUs'] = unmatched_barcode['SKUs'].astype(str)
+
         df_catalog['sku'] = df_catalog['sku'].astype(str)
 
         merge_SKUs = pd.merge(
