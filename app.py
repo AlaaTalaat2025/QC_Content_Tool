@@ -1,9 +1,3 @@
-!pip install streamlit pyngrok
-!pip install fuzzywuzzy[speedup]
-!pip install XlsxWriter
-# Install required packages (if not done yet)
-!pip install streamlit pyngrok --quiet
-%%writefile app.py
 import pandas as pd
 import numpy as np
 import re
@@ -1011,9 +1005,7 @@ if scanning_file and catalog_file and pim_file:
 
 else:
     st.warning("Please upload all three CSV files.")
-!pip install streamlit pyngrok
-!pip install fuzzywuzzy[speedup]
-!pip install XlsxWriter
+
 
 from pyngrok import ngrok
 ngrok.kill()  # Closes all active tunnels
