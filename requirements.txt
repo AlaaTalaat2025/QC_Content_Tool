@@ -5,5 +5,6 @@ openpyxl>=3.1.0
 scikit-learn>=1.2.0
 fuzzywuzzy[speedup]
 XlsxWriter
+sentence-transformers
 
 
