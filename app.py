@@ -1005,19 +1005,3 @@ if scanning_file and catalog_file and pim_file:
 
 else:
     st.warning("Please upload all three CSV files.")
-
-
-from pyngrok import ngrok
-ngrok.kill()  # Closes all active tunnels
-from pyngrok import ngrok
-
-ngrok.set_auth_token("30AhvqONR8Ng6jMHwIHWGAjg2qX_6pvauXnriiy9qZ27NKJXe")
-
-import subprocess
-
-# This example assumes your Streamlit app is saved as app.py
-# Replace with your actual app command if different
-process = subprocess.Popen(["streamlit", "run", "app.py"])
-
-public_url = ngrok.connect(8501)
-print("🔗 Public URL:", public_url)
