@@ -7,5 +7,4 @@ streamlit
 pyngrok
 fuzzywuzzy[speedup]
 XlsxWriter
-pandas
-numpy
+
