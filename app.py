@@ -58,6 +58,22 @@ if scanning_file and catalog_file and pim_file:
                     missing[label] = missing_rows
 
         return missing  # ✅ this must be indented to be inside the function
+    def infer_column_map(df):
+        column_map = {}
+        
+        for col in df.columns:
+            col_clean = col.strip().lower()
+            
+            if 'barcode' in col_clean:
+                column_map['barcode'] = col
+            elif 'sku' in col_clean:
+                column_map['sku'] = col
+            elif 'price' in col_clean:
+                column_map['price'] = col
+            elif 'productname' in col_clean or 'product' in col_clean:
+                column_map['product_name'] = col
+    
+        return column_map
 
     #Infer columns from df_scanning
     column_map = infer_column_map(df_scanning)
