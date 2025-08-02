@@ -1,50 +1,8 @@
 import streamlit as st
 import pandas as pd
-
-st.set_page_config(page_title="Assortment QC Tool", layout="centered")
-
-st.title("📦 Assortment Enhancement & QC Tool")
-
-# File Uploaders
-st.header("📁 Upload Required Files")
-
-master_file = st.file_uploader("📌 Upload Master File (CSV)", type=["csv"])
-chain_level_file = st.file_uploader("📌 Upload Chain Level File (CSV)", type=["csv"])
-pim_file = st.file_uploader("📌 Upload PIM File (CSV)", type=["csv"])
-
-# Check uploads
-if not master_file:
-    st.warning("⚠️ Please upload the Master File to continue.")
-if not chain_level_file:
-    st.warning("⚠️ Please upload the Chain Level File to continue.")
-if not pim_file:
-    st.warning("⚠️ Please upload the PIM File to continue.")
-
-# Proceed if all files uploadeda
-if master_file and chain_level_file and pim_file:
-    st.success("✅ All files uploaded successfully!")
-
-    # Load DataFrames (optional, can process later)
-    df_master = pd.read_csv(master_file)
-    df_chain = pd.read_csv(chain_level_file)
-    df_pim = pd.read_csv(pim_file)
-
-    # Preview first 5 rows from each file
-    with st.expander("🔍 Preview Master File"):
-        st.dataframe(df_master.head())
-    with st.expander("🔍 Preview Chain Level File"):
-        st.dataframe(df_chain.head())
-    with st.expander("🔍 Preview PIM File"):
-        st.dataframe(df_pim.head())
-
-    st.info("🛠️ You can now proceed with processing the uploaded files.")
-
-
-import pandas as pd
 import numpy as np
 import re
 import logging
-import streamlit as st
 import io
 from fuzzywuzzy import fuzz
 import os
@@ -1025,7 +983,7 @@ if scanning_file and catalog_file and pim_file:
 else:
     st.warning("Please upload all three CSV files.")
 
-from pyngrok import conf, ngrok
+from pyngrok import ngrok
 
 # Set the path to the ngrok.exe you downloaded
 config = conf.PyngrokConfig(ngrok_path=r"C:\Users\Dell\ngrok.exe")
